@@ -31,7 +31,7 @@ const SearchScreen = () =>{
                 data={results}
                 renderItem={({item}) => {
                     if(item.price === '$'){
-                        return (<ListItem />);
+                        return (<ListItem title={item.name}/>);
                     }
                 }}
             />
