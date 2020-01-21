@@ -5,16 +5,21 @@ import ListRow from '../test_components/ListRow';
 const ListWrapper = ({restaurants}) => {
 
     const cheapResults = restaurants.filter((restaurant)=>restaurant.price === '$');
+    const priceyResults = restaurants.filter((restaurant)=>restaurant.price === '$$');
+
 
     return (
         <View>
-            <Text>Cheap Options: </Text>
-            <ListRow />
+            <Text>$:</Text>
+            <ListRow restaurantList={cheapResults} />
+            <Text>$$:</Text>
+            <ListRow restaurantList={priceyResults} />
         </View>
     )
 };
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+})
 
 export default ListWrapper;
 
