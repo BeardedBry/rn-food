@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { View, Text, StyleSheet, FlatList} from 'react-native';
 import SearchBar from '../components/SearchBar';
 import useRestaurants from '../hooks/useRestaurants';
-import ListItem from '../test_components/ListItem';
-import ListRow from '../test_components/ListRow';
+
+import ListWrapper from '../test_components/ListWrapper';
 
 
 const SearchScreen = () =>{
@@ -24,17 +24,8 @@ const SearchScreen = () =>{
             {errorMessage ? <Text>{errorMessage}</Text> : null }
             <Text>We have found {results.length} results</Text>
 
-            <ListRow />
+            <ListWrapper restaurants={results}/>
 
-            <FlatList 
-                keyExtractor={(result) => result.id}
-                data={results}
-                renderItem={({item}) => {
-                    if(item.price === '$'){
-                        return (<ListItem title={item.name}/>);
-                    }
-                }}
-            />
         </View>
     )
 };
