@@ -11,11 +11,10 @@ const ListRow = ( {restaurantList} ) =>{
                 horizontal={true}
                 keyExtractor={(result) => result.id}
                 data={restaurantList}
-                renderItem={({item, index}) => {
-                        return (<ListItem image={item.image_url} title={item.name}/>);
+                renderItem={({ item }) => {
+                        return (<ListItem item={item} />);
                 }}
             />
-            <ListItem />
         </View>
     )
 };

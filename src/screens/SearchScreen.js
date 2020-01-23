@@ -1,21 +1,26 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, FlatList} from 'react-native';
+import { View, Text, StyleSheet, ScrollView} from 'react-native';
 import SearchBar from '../components/SearchBar';
 import useRestaurants from '../hooks/useRestaurants';
 
-import ListWrapper from '../test_components/ListWrapper';
+import ResultsList from '../components/ResultsList';
 
 
 const SearchScreen = () =>{
     const [term, setTerm ] = useState('');
     const [searchApi, results, errorMessage] = useRestaurants();
 
-    results.map((result)=>{
-        console.log(result.name + ': ' + result.price);
-    });
+    const filterResultsByPrice = (price) => {
+        // price === '$' || '$$' || '$$$'
+        return results.filter((result)=>result.price === price);
+    }
+
+    // results.map((result)=>{
+    //     console.log(result.name + ': ' + result.price);
+    // });
 
     return (
-        <View>
+        <>
             <SearchBar 
                 searchTerm={term} 
                 onTermChange={setTerm}
@@ -23,15 +28,18 @@ const SearchScreen = () =>{
             />
             {errorMessage ? <Text>{errorMessage}</Text> : null }
             <Text>We have found {results.length} results</Text>
-
-            <ListWrapper restaurants={results}/>
-
-        </View>
+            <ScrollView>
+                <ResultsList title="Cost Effective" results={filterResultsByPrice('$')}/>
+                <ResultsList title="Bit Pricier" results={filterResultsByPrice('$$')}/>
+                <ResultsList title="Big Spender" results={filterResultsByPrice('$$$')}/>
+            </ScrollView>
+        </>
     )
 };
 
 
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+})
 
 export default SearchScreen;

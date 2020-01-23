@@ -10,9 +10,9 @@ const ListWrapper = ({restaurants}) => {
 
     return (
         <View>
-            <Text>$:</Text>
+            <Text>Cost Effective</Text>
             <ListRow restaurantList={cheapResults} />
-            <Text>$$:</Text>
+            <Text>Bit Pricer</Text>
             <ListRow restaurantList={priceyResults} />
         </View>
     )

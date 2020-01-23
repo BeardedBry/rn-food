@@ -1,10 +1,10 @@
 import React from 'react';
 import { View, Text, StyleSheet, TextInput} from 'react-native';
-//import Icon from 'react-native-vector-icons/FontAwesome';
+import Icon from 'react-native-vector-icons/Feather';
 
-const Icon = () => {
-    return <Text>{null}</Text>
-}
+// const Icon = () => {
+//     return <Text>{null}</Text>
+// }
 
 const SearchBar = ({searchTerm, onTermChange, onTermSubmit}) =>{
     return (
