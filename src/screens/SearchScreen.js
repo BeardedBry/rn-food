@@ -4,7 +4,7 @@ import SearchBar from '../components/SearchBar';
 import useRestaurants from '../hooks/useRestaurants';
 import ResultsList from '../components/ResultsList';
 
-const SearchScreen = ({navigation}) =>{
+const SearchScreen = () =>{
 
     //console.log(navigation)
 
@@ -30,9 +30,9 @@ const SearchScreen = ({navigation}) =>{
             {errorMessage ? <Text>{errorMessage}</Text> : null }
             {/* <Text>We have found {results.length} results</Text> */}
             <ScrollView>
-                <ResultsList title="Cost Effective" results={filterResultsByPrice('$')} navigation={navigation}/>
-                <ResultsList title="Bit Pricier" results={filterResultsByPrice('$$')} navigation={navigation}/>
-                <ResultsList title="Big Spender" results={filterResultsByPrice('$$$')} navigation={navigation}/>
+                <ResultsList title="Cost Effective" results={filterResultsByPrice('$')} />
+                <ResultsList title="Bit Pricier" results={filterResultsByPrice('$$')} />
+                <ResultsList title="Big Spender" results={filterResultsByPrice('$$$')} />
             </ScrollView>
         </>
     )

@@ -6,7 +6,7 @@ export default () => {
     const [errorMessage, setErrorMessage] = useState('');
 
     const searchApi = async(searchTerm) => {
-        console.log('hi');
+        //console.log('hi');
         try {
             const response = await yelp.get('/search',{
                 params: {
@@ -15,10 +15,10 @@ export default () => {
                     location: "Dayton, OH"
                 }
             });
-            console.log(response.data.businesses.length);
+            //console.log(response.data.businesses.length);
             setResults(response.data.businesses);
         } catch(e) {
-            console.log(e);
+            //console.log(e);
             setErrorMessage('Something went wrong :\( ');
         }
     }
