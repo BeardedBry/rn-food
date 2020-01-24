@@ -5,7 +5,7 @@ import ResultsDetail from './ResultsDetail';
 
 const ResultsList = ({title, results, navigation}) =>{
 
-    if(results.length < 1) {
+    if(!results.length) {
         return null;
     }
 
@@ -20,7 +20,7 @@ const ResultsList = ({title, results, navigation}) =>{
                 renderItem={({ item })=>{
                     return (
                         <TouchableOpacity onPress={()=>navigation.navigate('ResultsShow', {id: item.id})}>
-                            <ResultsDetail result={item} nav={navigation}/>
+                            <ResultsDetail result={item} />
                         </TouchableOpacity>
                     )
                 }}
